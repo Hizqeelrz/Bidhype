@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Bidhype · Phoenix Framework</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body>
@@ -15,8 +16,8 @@
           <%= if signed_in?(@conn) do %>
             <li><%= link "Log Out", to: Routes.session_path(@conn, :delete), method: :delete %></li>
           <% else %>
-            <li><%= link "Sign In", to: Routes.session_path(@conn, :new) %>
-            <%= link "Sign Up", to: Routes.user_path(@conn, :new) %></li>
+            <li><%= link "Sign In", to: Routes.session_path(@conn, :new), class: "btn btn-sm btn-outline-secondary" %>
+            <%= link "Sign Up", to: Routes.user_path(@conn, :new), class: "btn btn-sm btn-outline-info" %></li>
           <% end %>
           </ul>
         </nav>
@@ -25,9 +26,17 @@
         </a>
       </section>
     </header>
+
     <main role="main" class="container">
+    <%= unless is_nil(get_flash(@conn, :info)) do %>
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+    <% end %>
+    <%= unless is_nil(get_flash(@conn, :error)) do %>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+    <% end %>
+    <%= unless is_nil(get_flash(@conn, :success)) do %>
+      <p class="alert alert-success" role="alert"><%= get_flash(@conn, :success) %></p>
+    <% end %>
       <%= render @view_module, @view_template, assigns %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>

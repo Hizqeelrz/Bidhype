@@ -28,6 +28,6 @@ defmodule BidhypeWeb.SessionController do
     conn
     |> delete_session(:current_user_id)
     |> put_flash(:success, "Sign Out Successfully")
-    |> redirect(to: Routes.session_path(conn, :new))
+    |> redirect(to: Routes.page_path(conn, :index))
   end
 end
