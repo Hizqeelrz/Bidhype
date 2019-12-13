@@ -1,0 +1,28 @@
+<h1>Show Bid</h1>
+
+<ul>
+
+  <li>
+    <strong>Item name:</strong>
+    <%= @bid.item_name %>
+  </li>
+
+  <li>
+    <strong>Avatar:</strong>
+    <%= @bid.avatar %>
+  </li>
+
+  <li>
+    <strong>Min price:</strong>
+    <%= @bid.min_price %>
+  </li>
+
+  <li>
+    <strong>Max price:</strong>
+    <%= @bid.max_price %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.bid_path(@conn, :edit, @bid) %></span>
+<span><%= link "Back", to: Routes.bid_path(@conn, :index) %></span>
