@@ -1,11 +1,11 @@
-<h1>Listing Bids</h1>
+<h1>Bids</h1>
 <span><%= link "New Bid", to: Routes.bid_path(@conn, :new), class: "btn btn-sm btn-outline-primary mb-4" %></span>
 
 <table class="table">
   <thead>
     <tr>
       <th>Item name</th>
-      <th>Avatar</th>
+      <th>Image</th>
       <th>Min price</th>
       <th>Max price</th>
 

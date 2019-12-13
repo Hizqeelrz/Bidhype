@@ -9,6 +9,11 @@ defmodule BidhypeWeb.Router do
     plug :put_secure_browser_headers
   end
 
+  pipeline :auth_user do
+    plug(Bidhype.Auth)
+  end
+
+
   pipeline :api do
     plug :accepts, ["json"]
   end
@@ -19,11 +24,17 @@ defmodule BidhypeWeb.Router do
     get "/", PageController, :index
     
     resources "/registration", UserController, only: [:new, :create, :show]
-    resources "/bids", BidController
 
     get "/sign-in", SessionController, :new
     post "/sign-in", SessionController, :create
     delete "sign-out", SessionController, :delete
+  end
+
+  scope "/big_hype_user", BidhypeWeb do
+    pipe_through [:browser, :auth_user]
+
+    resources "/bids", BidController
+
   end
 
   # Other scopes may use custom stacks.

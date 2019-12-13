@@ -5,6 +5,7 @@ defmodule BidhypeWeb.BidController do
   alias Bidhype.Auction.Bid
 
   def index(conn, _params) do
+    IO.inspect conn
     bids = Auction.list_bids()
     render(conn, "index.html", bids: bids)
   end

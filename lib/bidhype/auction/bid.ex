@@ -7,7 +7,9 @@ defmodule Bidhype.Auction.Bid do
     field :item_name, :string
     field :max_price, :integer
     field :min_price, :integer
-    field :user_id, :id
+    # field :user_id, :id
+
+    belongs_to :seller_name, Bidhype.Accounts.User, foreign_key: :user_id
 
     timestamps()
   end
@@ -15,7 +17,7 @@ defmodule Bidhype.Auction.Bid do
   @doc false
   def changeset(bid, attrs) do
     bid
-    |> cast(attrs, [:item_name, :avatar, :min_price, :max_price])
-    |> validate_required([:item_name, :avatar, :min_price, :max_price])
+    |> cast(attrs, [:item_name, :avatar, :min_price, :max_price, :user_id])
+    |> validate_required([:item_name])
   end
 end
