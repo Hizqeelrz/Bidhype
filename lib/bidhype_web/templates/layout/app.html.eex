@@ -12,18 +12,15 @@
     <header>
       <section class="container">
         <nav role="navigation">
-          <ul>
+          <ul class="d-flex justify-content-end mt-3">
           <%= if signed_in?(@conn) do %>
-            <li><%= link "Log Out", to: Routes.session_path(@conn, :delete), method: :delete %></li>
+            <%= link "Log Out", to: Routes.session_path(@conn, :delete), method: :delete, class: "btn btn-sm btn-outline-danger" %>
           <% else %>
-            <li><%= link "Sign In", to: Routes.session_path(@conn, :new), class: "btn btn-sm btn-outline-secondary" %>
-            <%= link "Sign Up", to: Routes.user_path(@conn, :new), class: "btn btn-sm btn-outline-info" %></li>
+            <%= link "Sign In", to: Routes.session_path(@conn, :new), class: "btn btn-sm btn-outline-secondary mr-2" %>
+            <%= link "Sign Up", to: Routes.user_path(@conn, :new), class: "btn btn-sm btn-outline-primary" %>
           <% end %>
           </ul>
         </nav>
-        <a href="http://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
       </section>
     </header>
 

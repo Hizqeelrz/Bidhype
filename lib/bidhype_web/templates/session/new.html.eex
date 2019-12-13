@@ -1,7 +1,14 @@
 <h1>Sign In</h1>
 
-<%= form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f -> %>
-  <%= email_input f, :email, placeholder: "Email..." %>
-  <%= password_input f, :password, placeholder: "Password..." %>
-  <%= submit "Sign In"%>
-<% end %>
+<div class="">
+  <%= form_for @conn, Routes.session_path(@conn, :create), [as: :session], fn f -> %>
+    <div class="form-group">
+      <%= email_input f, :email, placeholder: "Email...", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= password_input f, :password, placeholder: "Password...", class: "form-control" %>
+    </div>
+    <%= submit "Sign In", class: "btn btn-outline-success" %>
+  <% end %>
+</div>
