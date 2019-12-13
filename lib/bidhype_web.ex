@@ -41,6 +41,7 @@ defmodule BidhypeWeb do
 
       import BidhypeWeb.ErrorHelpers
       import BidhypeWeb.Gettext
+      import Bidhype.Auth, only: [signed_in?: 1]
       alias BidhypeWeb.Router.Helpers, as: Routes
     end
   end

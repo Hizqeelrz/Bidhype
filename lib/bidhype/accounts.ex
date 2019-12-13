@@ -21,6 +21,10 @@ defmodule Bidhype.Accounts do
     Repo.all(User)
   end
 
+  def get_user_by_email(email) do
+    Repo.get_by(User, email: email)
+  end
+  
   @doc """
   Gets a single user.
 
