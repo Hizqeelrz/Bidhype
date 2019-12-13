@@ -14,24 +14,12 @@
   <%= error_tag f, :last_name %>
 
   <%= label f, :email %>
-  <%= text_input f, :email %>
+  <%= email_input f, :email %>
   <%= error_tag f, :email %>
 
-  <%= label f, :password_hash %>
-  <%= text_input f, :password_hash %>
-  <%= error_tag f, :password_hash %>
-
-  <%= label f, :avatar %>
-  <%= text_input f, :avatar %>
-  <%= error_tag f, :avatar %>
-
-  <%= label f, :gender %>
-  <%= number_input f, :gender %>
-  <%= error_tag f, :gender %>
-
-  <%= label f, :mobile %>
-  <%= text_input f, :mobile %>
-  <%= error_tag f, :mobile %>
+  <%= label f, :password %>
+  <%= password_input f, :password %>
+  <%= error_tag f, :password %>
 
   <div>
     <%= submit "Save" %>

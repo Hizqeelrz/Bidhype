@@ -17,6 +17,11 @@ defmodule BidhypeWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    resources "/registration", UserController, only: [:new, :create, :show]
+
+    get "/sign-in", SessionController, :new
+    post "/sign-in", SessionController, :create
+    delete "sign-out", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
