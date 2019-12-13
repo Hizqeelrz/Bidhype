@@ -16,7 +16,7 @@ defmodule BidhypeWeb.SessionController do
         conn
         |> put_session(:current_user_id, user.id)
         |> put_flash(:info, "You Signed in successfully")
-        |> redirect(to: Routes.user_path(conn, :show, user))
+        |> redirect(to: Routes.bid_path(conn, :index))
       {:error, _} ->
         conn
         |> put_flash(:error, "Invalid Email or Password! Try again")

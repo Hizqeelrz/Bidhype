@@ -1,5 +1,5 @@
 <section class="jumbotron">
-  <h1 class="display-3 text-center"><%= gettext "Welcome to %{name}!", name: "BidHype" %></h1>
+  <h1 class="display-3 text-center"><%= gettext "%{name}!", name: "BidHype" %></h1>
   <p class="lead text-center">Real Time Bidding where you can easily buy and sell with most secure payment channels!</p>
 </section>
 
