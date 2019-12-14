@@ -2,6 +2,7 @@
 // The MiniCssExtractPlugin is used to separate it out into
 // its own CSS file.
 import 'bootstrap';
+import "./custom_javascript"
 import css from "../css/app.scss"
 
 // webpack automatically bundles all modules in your
