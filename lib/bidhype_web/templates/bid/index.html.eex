@@ -6,8 +6,7 @@
     <tr>
       <th>Item name</th>
       <th>Image</th>
-      <th>Min price</th>
-      <th>Max price</th>
+      <th>Estimate</th>
 
       <th></th>
     </tr>
@@ -17,13 +16,12 @@
     <tr>
       <td><%= bid.item_name %></td>
       <td><%= bid.avatar %></td>
-      <td><%= bid.min_price %></td>
-      <td><%= bid.max_price %></td>
+      <td>$<%= bid.min_price %> - $<%= bid.max_price %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.bid_path(@conn, :show, bid) %></span>
-        <span><%= link "Edit", to: Routes.bid_path(@conn, :edit, bid) %></span>
-        <span><%= link "Delete", to: Routes.bid_path(@conn, :delete, bid), method: :delete, data: [confirm: "Are you sure?"] %></span>
+        <span><%= link "Show", to: Routes.bid_path(@conn, :show, bid), class: "btn btn-sm btn-outline-secondary" %></span>
+        <span><%= link "Edit", to: Routes.bid_path(@conn, :edit, bid), class: "btn btn-sm btn-outline-info" %></span>
+        <span><%= link "Delete", to: Routes.bid_path(@conn, :delete, bid), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-sm btn-outline-danger" %></span>
       </td>
     </tr>
 <% end %>

@@ -25,6 +25,17 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+config :arc,
+version_timeout: 300_000,
+storage: Arc.Storage.Local
+# bucket: "xolo-dev"
+
+case Mix.env() do
+  :dev ->
+    config :bidhype,
+      img_host: "http://192.168.10.2:4000"
+end
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"

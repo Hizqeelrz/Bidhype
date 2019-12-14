@@ -101,4 +101,16 @@ defmodule Bidhype.Auction do
   def change_bid(%Bid{} = bid) do
     Bid.changeset(bid, %{})
   end
+
+  def save_avatar(file, schema) do
+    case file do
+      "" -> "https://www.fantraxhq.com/wp-content/uploads/2019/06/Fantasy-Football-Auction-Draft-Strategy.jpg"
+      nil -> "https://www.fantraxhq.com/wp-content/uploads/2019/06/Fantasy-Football-Auction-Draft-Strategy.jpg"
+      _ ->
+        {:ok, _file} = Bidhype.Avatar.store({file, schema})
+        url = Bidhype.Avatar.url({schema.id, schema}, :thumb)
+        url
+    end
+  end
+
 end

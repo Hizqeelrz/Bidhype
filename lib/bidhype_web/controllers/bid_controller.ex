@@ -16,12 +16,20 @@ defmodule BidhypeWeb.BidController do
   end
 
   def create(conn, %{"bid" => bid_params}) do
-    case Auction.create_bid(bid_params) do
-      {:ok, bid} ->
+    user = conn.assigns.current_user_id
+
+    bid_params = Map.put(bid_params, "user_id", user.id)
+
+    file = bid_params["avatar"]
+    bid_params = Map.delete(bid_params ,"avatar")
+
+    with {:ok, %Bid{} = bid} <- Auction.create_bid(bid_params) do
+      url = Auction.save_avatar(file, bid)
+      {:ok, bid} = Auction.update_bid(bid, %{avatar: url})
         conn
         |> put_flash(:info, "Bid created successfully.")
         |> redirect(to: Routes.bid_path(conn, :show, bid))
-
+    else
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
