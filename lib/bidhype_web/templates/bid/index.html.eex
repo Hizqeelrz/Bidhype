@@ -15,7 +15,7 @@
 <%= for bid <- @bids do %>
     <tr>
       <td><%= bid.item_name %></td>
-      <td><%= bid.avatar %></td>
+      <td><img src="<%= url(bid) %>" alt="User name....." style="width:20%;" class="rounded-circle"></td>
       <td>$<%= bid.min_price %> - $<%= bid.max_price %></td>
 
       <td>
