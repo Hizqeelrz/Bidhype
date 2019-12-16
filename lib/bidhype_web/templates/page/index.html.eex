@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="card-footer">
-        <small class="text-muted">Last update <%= bid.inserted_at %></small>
+        <small class="text-muted" id="start-date">Starts Thu, 19 Dec 2019 10:37:25 GMT</small> <small id="expire-date" class="float-right"></small>
       </div>
     </div>
   </div>
