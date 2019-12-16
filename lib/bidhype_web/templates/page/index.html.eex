@@ -3,3 +3,26 @@
   <p class="lead text-center">Real Time Bidding where you can easily buy and sell with most secure payment channels!</p>
 </section>
 
+<div class="row">
+<%= for bid <- @bids do %>
+  <div class="col-6 mb-3">
+    <div class="card" style="max-width: 540px;">
+      <img src="<%= url(bid) %>" alt="User name....." style="width:50%;" class="index-bids">
+      <hr>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-10">
+            <p class="card-item-name"><%= String.slice(bid.item_name, 0..45) %></p>
+          </div>
+          <div class="col-2">
+          <button class="btn btn-sm btn-info float-right">Explore</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last update <%= bid.inserted_at %></small>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

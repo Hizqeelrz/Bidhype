@@ -5,7 +5,7 @@ defmodule Bidhype.Avatar do
   # Include ecto support (requires package arc_ecto installed):
   # use Arc.Ecto.Definition
 
-  @versions [:thumb]
+  @versions [:original]
 
   # To add a thumbnail version:
   # @versions [:original, :thumb]
@@ -24,8 +24,8 @@ defmodule Bidhype.Avatar do
   end
 
   # Define a thumbnail transformation:
-  def transform(:thumb, _) do
-    {:convert, "-strip -thumbnail 150x150^ -gravity center -extent 150x150 -format png", :png}
+  def transform(:original, _) do
+    {:convert, "-strip -thumbnail 250x250^ -gravity center -extent 250x250 -format png", :png}
   end
 
   # Override the persisted filenames:

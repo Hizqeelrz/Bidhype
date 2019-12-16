@@ -108,7 +108,7 @@ defmodule Bidhype.Auction do
       nil -> "https://www.fantraxhq.com/wp-content/uploads/2019/06/Fantasy-Football-Auction-Draft-Strategy.jpg"
       _ ->
         {:ok, _file} = Bidhype.Avatar.store({file, schema})
-        url = Bidhype.Avatar.url({schema.id, schema}, :thumb)
+        url = Bidhype.Avatar.url({schema.id, schema}, :original)
         url
     end
   end

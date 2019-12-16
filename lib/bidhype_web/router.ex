@@ -24,6 +24,7 @@ defmodule BidhypeWeb.Router do
     get "/", PageController, :index
     
     resources "/registration", UserController, only: [:new, :create, :show]
+    # resources "/bids", BidController, only: [:index]
 
     get "/sign-in", SessionController, :new
     post "/sign-in", SessionController, :create

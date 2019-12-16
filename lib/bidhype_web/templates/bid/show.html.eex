@@ -8,8 +8,8 @@
 </div>
 
 <div class="col-sm-6">
-<h2 class="show-item w-100 mb-3"><%= @bid.item_name %></h2>
-Estimate $<%= @bid.min_price %> - $<%= @bid.max_price %>
+<h2 class="show-item w-100 mb-5"><%= @bid.item_name %></h2>
+<span>Estimate $<%= @bid.min_price %> - $<%= @bid.max_price %></span>
 <div id="card-color" class="card" style="width: 18rem; margin-top: 1rem;">
   <div class="card-body">
     <h4 class="card-title"><span style="height:12px;">$<%= @bid.min_price %></span></h4>
