@@ -1,28 +1,23 @@
-<h1>Show Bid</h1>
+<div class="row mt-5">
 
-<ul>
+<div class="col-sm-6">
+<figure class="figure border border-dark">
+   <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid ">
+  <%# <figcaption class="figure-caption">A caption for the above image.</figcaption> %>
+</figure>
+</div>
 
-  <li>
-    <strong>Item name:</strong>
-    <%= @bid.item_name %>
-  </li>
+<div class="col-sm-6">
+<h2 class="show-item w-100 mb-3"><%= @bid.item_name %></h2>
+Estimate $<%= @bid.min_price %> - $<%= @bid.max_price %>
+<div id="card-color" class="card" style="width: 18rem; margin-top: 1rem;">
+  <div class="card-body">
+    <h4 class="card-title"><span style="height:12px;">$<%= @bid.min_price %></span></h4>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+  </div>
+</div>
+<span><%= link "Edit", to: Routes.bid_path(@conn, :edit, @bid), class: "btn btn-sm btn-outline-info mt-3" %></span>
+<span><%= link "Back", to: Routes.bid_path(@conn, :index), class: "btn btn-sm btn-outline-secondary mt-3" %></span>
+</div>
 
-  <li>
-    <strong>Avatar:</strong>
-    <%= @bid.avatar %>
-  </li>
-
-  <li>
-    <strong>Min price:</strong>
-    <%= @bid.min_price %>
-  </li>
-
-  <li>
-    <strong>Max price:</strong>
-    <%= @bid.max_price %>
-  </li>
-
-</ul>
-
-<span><%= link "Edit", to: Routes.bid_path(@conn, :edit, @bid), class: "btn btn-sm btn-outline-info" %></span>
-<span><%= link "Back", to: Routes.bid_path(@conn, :index), class: "btn btn-sm btn-outline-secondary" %></span>
+</div>
