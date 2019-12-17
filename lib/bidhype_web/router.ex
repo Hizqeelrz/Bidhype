@@ -22,6 +22,7 @@ defmodule BidhypeWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/show_single_bid/:id", PageController, :show_single_bid
     
     resources "/registration", UserController, only: [:new, :create, :show]
     # resources "/bids", BidController, only: [:index]

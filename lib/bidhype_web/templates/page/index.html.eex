@@ -15,12 +15,13 @@
             <p class="card-item-name"><%= String.slice(bid.item_name, 0..45) %></p>
           </div>
           <div class="col-2">
-          <button class="btn btn-sm btn-info float-right">Explore</button>
+          <span><%= link "Explore", to: Routes.page_path(@conn, :show_single_bid, bid), class: "btn btn-sm btn-info float-right" %></span>
+          <%# <button class="btn btn-sm btn-info float-right">Explore</button> %>
           </div>
         </div>
       </div>
       <div class="card-footer">
-        <small class="text-muted" id="start-date">Starts Thu, 19 Dec 2019 10:37:25 GMT</small> <small id="expire-date" class="float-right"></small>
+        <small class="text-muted" id="start-date">Starts <%= bid.start_time %></small> <small id="expire-date" class="float-right"></small>
       </div>
     </div>
   </div>
