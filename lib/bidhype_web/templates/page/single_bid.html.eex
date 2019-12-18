@@ -1,0 +1,36 @@
+<div class="row mt-5">
+
+<div class="col-sm-6">
+<figure class="figure border border-dark">
+   <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid ">
+  <%# <figcaption class="figure-caption">A caption for the above image.</figcaption> %>
+</figure>
+</div>
+
+<div class="col-sm-6">
+<h2 class="show-item w-100 mb-5"><%= @bid.item_name %></h2>
+<span>Estimate $<%= @bid.min_price %> - $<%= @bid.max_price %></span>
+<div id="card-color" class="card" style="width: 32rem; height:18rem; margin-top: 1rem;">
+  <div class="card-body">
+    <h4 class="card-title ml-4"><span style="height:12px;">$<%= @bid.min_price %></span></h4>
+  </div>
+
+<div class="col-10 ml-4 mt-5">
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">YOUR MAXIMUM BID:</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+    <span><%= link "Place Bid", to: Routes.page_path(@conn, :live_bid, @bid), class: "btn btn-md btn-outline-danger d-flex justify-content-around" %></span>
+</div>
+</div>
+<p class="mt-3 ml-3">Get pre-approved to bid live on <span class="single-bid-2"><%= Timex.format!(date(Timex.now), "{WDshort}, {D} {Mshort} {YYYY} {h24}:{0m}:{0s} {Z}") %>.</span></p>
+<span><%= link "Back", to: Routes.page_path(@conn, :index), class: "btn btn-sm btn-outline-secondary mt-3" %></span>
+</div>
+
+</div>

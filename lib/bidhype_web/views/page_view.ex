@@ -9,4 +9,11 @@ defmodule BidhypeWeb.PageView do
       _ -> @img_host <> schema.avatar
     end
   end
+
+  def date(date) do
+    if not is_nil(date) do 
+      t = date
+          |> Timex.Timezone.convert("Asia/Karachi")
+    end
+  end
 end
