@@ -1,6 +1,8 @@
 defmodule BidhypeWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :bidhype
 
+  socket "/live", Phoenix.LiveView.Socket
+
   socket "/socket", BidhypeWeb.UserSocket,
     websocket: true,
     longpoll: false

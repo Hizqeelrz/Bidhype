@@ -15,7 +15,10 @@ config :bidhype, BidhypeWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "miLjVPFZITt9qzlb9hm55kFp9UN21kokLkFcSlu6RRQGkPPY4IxiC4cSP2bowkgj",
   render_errors: [view: BidhypeWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Bidhype.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Bidhype.PubSub, adapter: Phoenix.PubSub.PG2],
+  live_view: [
+    signing_salt: "UVt0g4MQPItfvE+bP98DLjS8Cr5s3otB"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,

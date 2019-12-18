@@ -47,6 +47,7 @@ defmodule Bidhype.MixProject do
       {:arc, "~> 0.11.0"},
       {:arc_ecto, "~> 0.11.3"},
       {:timex, "~> 3.6"},
+      {:phoenix_live_view, "~> 0.4.1"},
       {:plug_cowboy, "~> 2.0"}
     ]
   end
