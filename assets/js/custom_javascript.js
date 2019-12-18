@@ -22,3 +22,37 @@ document.getElementById("expire-date").innerHTML = days + "d "
         document.getElementById("expire-date").innerHTML = "EXPIRED";
     } 
 }, 1000);
+
+var timerInterval;
+
+let minutes = 0;
+let seconds = 15;
+
+let duration = (minutes * 60) + seconds;
+let display = document.querySelector('#timer');
+
+function startTimer(duration, display) {
+  var timer = duration, minutes, seconds;
+  timerInterval = setInterval(function() {
+    minutes = parseInt(timer / 60, 10)
+    seconds = parseInt(timer % 60, 10);
+
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    display.textContent = minutes + ":" + seconds;
+
+    if (--timer < 0) {
+      timer = duration;
+      clearInterval(timerInterval);
+      $('.button').attr('disabled','disabled');
+    }
+  }, 1000);
+}
+
+startTimer(duration, display);
+
+$('#reset').click((e) => {
+	clearInterval(timerInterval);
+  startTimer(duration, display);
+});
