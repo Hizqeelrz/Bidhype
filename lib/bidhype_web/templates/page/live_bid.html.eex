@@ -1,0 +1,19 @@
+<div class="row mt-5">
+
+<div class="col-sm-6">
+<div class="card" style="width: 18rem;">
+    <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid card-img-top">
+  <div class="card-body">
+    <h5 class="card-title text-center">Timer</h5>
+    <p class="card-text text-center">$5</p>
+    <a href="#" class="btn btn-success d-flex justify-content-sm-center">Bid</a>
+  </div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<h2 class="show-item w-100 mb-5"><%= @bid.item_name %></h2>
+<span><%= link "Back", to: Routes.page_path(@conn, :show_single_bid, @bid), class: "btn btn-sm btn-outline-secondary mt-3" %></span>
+</div>
+
+</div>

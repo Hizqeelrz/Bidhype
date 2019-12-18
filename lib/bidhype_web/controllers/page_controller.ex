@@ -8,7 +8,7 @@ defmodule BidhypeWeb.PageController do
 
   alias Bidhype.Accounts
 
-  plug :check_auth when action in [:live_bid]
+  # plug :check_auth when action in [:live_bid]
 
   defp check_auth(conn, _args) do
     if user_id =  get_session(conn, :current_user_id) do
