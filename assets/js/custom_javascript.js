@@ -26,7 +26,7 @@ document.getElementById("expire-date").innerHTML = days + "d "
 var timerInterval;
 
 let minutes = 0;
-let seconds = 15;
+let seconds = 6;
 
 let duration = (minutes * 60) + seconds;
 let display = document.querySelector('#timer');
@@ -46,6 +46,7 @@ function startTimer(duration, display) {
       timer = duration;
       clearInterval(timerInterval);
       $('.button').attr('disabled','disabled');
+      document.getElementById("timer").innerHTML = "Item Sold For";
     }
   }, 1000);
 }

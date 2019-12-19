@@ -4,9 +4,10 @@
 <div class="card" style="width: 18rem;">
     <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid card-img-top">
   <div class="card-body">
-    <h5 class="card-title text-center"><div class="timer"><span id="timer"></span></div></h5>
-    <p class="card-text text-center">$5</p>
-    <button class="btn btn-success d-flex justify-content-sm-center button" id="reset">Bid</button>
+    <%# <h5 class="card-title text-center"><div class="timer"><span id="timer"></span></div></h5> %>
+    <%# <p class="card-text text-center">$5</p> %>
+    <%# <button class="btn btn-success d-flex justify-content-sm-center button" id="reset">Bid</button> %>
+    <%= live_render(@conn, BidhypeWeb.BidLive) %>
   </div>
 </div>
 </div>
