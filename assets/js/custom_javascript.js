@@ -23,6 +23,11 @@ document.getElementById("expire-date").innerHTML = days + "d "
     } 
 }, 1000);
 
+
+//----------------------
+// Timer for live Bids
+//----------------------
+
 var timerInterval;
 
 let minutes = 0;
