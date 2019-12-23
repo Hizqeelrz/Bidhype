@@ -8,17 +8,22 @@ defmodule BidhypeWeb.BidLive do
     PageView.render("bids.html", assigns)
   end
 
-  def mount(%{}, socket) do
+  def mount(%{path_params: %{"id" => bid_id}}, socket) do
     if connected?(socket), do: Auction.subscribe()
-    bits = {:ok, assign(socket, :bid, Auction.get_bid!(8))}
+    {:ok, assign(socket, :bid, Auction.get_bid!(bid_id))}
   end
 
   def handle_info({Auction, [:bid, _], _}, socket) do
     {:noreply, socket}
   end
 
-  def handle_event("inc", _val, socket) do
-    {:noreply, update(socket, :val, &(&1 + 5))}
+  def handle_event("price_bid", _val, socket) do
+    bid = Auction.get_bid!(8)
+
+    IO.inspect bid
+
+    Auction.update_bid(bid, %{price_bid: bid.price_bid + 5})
+    {:noreply, update(socket, :price_bid, bid)}
   end
 
   defp fetch(socket) do

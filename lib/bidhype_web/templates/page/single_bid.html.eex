@@ -17,7 +17,7 @@
 
 <div class="col-9 ml-5 mt-5">
     <span><%#= link "Enter Live Bid", to: Routes.page_path(@conn, :live_bid, @bid), class: "btn btn-md btn-outline-danger d-flex justify-content-around", id: "myForm" %></span>
-    <span><%= link "Enter Live Bid", to: Routes.live_path(@conn, BidhypeWeb.BidLive, @bid) %></span>
+    <span><%= link "Enter Live Bid", to: Routes.live_path(@conn, BidhypeWeb.BidLive, @bid), class: "btn btn-md btn-outline-danger d-flex justify-content-around", id: "myForm" %></span>
 </div>
 </div>
 <p class="mt-3 ml-3">Get pre-approved to bid live on <span class="font-weight-bold"><%= Timex.format!(date(Timex.now), "{WDshort}, {D} {Mshort} {YYYY} {h24}:{0m}:{0s} {Z}") %>.</span></p>
