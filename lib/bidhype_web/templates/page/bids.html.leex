@@ -1,11 +1,21 @@
-<div>
-  <h5 class="card-title text-center"><div class="timer"><span id=""></span></div></h5>
-  <h1 class="card-text text-center">$<%= %></h1>
-  <button phx-click="inc" class="btn btn-success button" id="reset">Bid</button>
+<div class="row mt-5">
+
+<div class="col-sm-6">
+<div class="card" style="width: 18rem;">
+    <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid card-img-top">
+  <div class="card-body">
+    <div>
+      <h5 class="card-title text-center"><div class="timer"><span id="timer"></span></div></h5>
+      <h1 class="card-text text-center">$<%= @bid.price_bid %></h1>
+      <button phx-click="inc" class="btn btn-success button" id="reset">Bid</button>
+    </div>
+  </div>
+</div>
 </div>
 
-<%#= for bid <- @bids do %>
-  <%#= bid.price_bid %>
-  <%#= bid.start_time %>
+<div class="col-sm-6">
+<h2 class="show-item w-100 mb-5"><%= @bid.item_name %></h2>
+<span><%= link "Back", to: Routes.page_path(@socket, :show_single_bid, @bid), class: "btn btn-sm btn-outline-secondary mt-3" %></span>
+</div>
 
-<%# end %>
+</div>

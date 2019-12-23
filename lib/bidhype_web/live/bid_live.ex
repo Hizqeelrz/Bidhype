@@ -8,9 +8,9 @@ defmodule BidhypeWeb.BidLive do
     PageView.render("bids.html", assigns)
   end
 
-  def mount(%{path_params: %{"id" => bid_id}}, socket) do
+  def mount(%{}, socket) do
     if connected?(socket), do: Auction.subscribe()
-    {:ok, assign(socket, :bid, Auction.get_bid!(bid_id))}
+    bits = {:ok, assign(socket, :bid, Auction.get_bid!(8))}
   end
 
   def handle_info({Auction, [:bid, _], _}, socket) do
