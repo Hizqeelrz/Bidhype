@@ -8,6 +8,12 @@ defmodule Bidhype.Auction do
 
   alias Bidhype.Auction.Bid
 
+  @topic inspect(__MODULE__)
+
+  def subscribe do
+    Phoenix.PubSub.subscribe(Bidhype.PubSub, @topic)
+  end
+
   @doc """
   Returns the list of bids.
 
@@ -113,4 +119,12 @@ defmodule Bidhype.Auction do
     end
   end
 
+  defp notify_subscribers({:ok, result}, event) do
+    Phoenix.PubSub.broadcast(Bidhype.PubSub, @topic, {__MODULE__, event, result})
+    {:ok, result}
+  end
+
+  defp notify_subscribers({:error, reason}, _event) do
+    {:error, reason}
+  end
 end

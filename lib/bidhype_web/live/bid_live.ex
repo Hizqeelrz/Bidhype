@@ -9,6 +9,7 @@ defmodule BidhypeWeb.BidLive do
   end
 
   def mount(%{path_params: %{"id" => bid_id}}, socket) do
+    if connected?(socket), do: Auction.subscribe()
     {:ok, assign(socket, :bid, Auction.get_bid!(bid_id))}
   end
 
