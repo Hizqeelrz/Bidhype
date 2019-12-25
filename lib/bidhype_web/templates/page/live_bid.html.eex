@@ -4,7 +4,7 @@
 <div class="card" style="width: 18rem;">
     <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid card-img-top">
   <div class="card-body">
-    <%#= live_render(@conn, BidhypeWeb.BidLive) %>
+    <%= live_render(@conn, BidhypeWeb.BidLive) %>
   </div>
 </div>
 </div>

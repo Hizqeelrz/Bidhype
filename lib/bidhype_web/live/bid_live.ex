@@ -4,30 +4,45 @@ defmodule BidhypeWeb.BidLive do
   alias Bidhype.Auction
 
   def render(assigns) do
-    # IO.inspect assigns.bid
+    # IO.inspect assigns
     PageView.render("bids.html", assigns)
   end
 
-  def mount(%{path_params: %{"id" => bid_id}}, socket) do
+  def mount(%{id: id}, socket) do
     if connected?(socket), do: Auction.subscribe()
-    {:ok, assign(socket, :bid, Auction.get_bid!(bid_id))}
+    {:ok, assign(socket, :bid, Auction.get_bid!(id))}
   end
 
   def handle_info({Auction, [:bid, _], _}, socket) do
+    # IO.inspect "handle_info"
     {:noreply, socket}
   end
 
-  def handle_event("price_bid", _val, socket) do
-    bid = Auction.get_bid!(8)
+  def handle_event("price_bid", val, socket) do
+    IO.inspect "handle_event"
+    bid = Auction.get_bid!(socket.assigns.bid.id)
 
-    IO.inspect bid
-
-    Auction.update_bid(bid, %{price_bid: bid.price_bid + 5})
-    {:noreply, update(socket, :price_bid, bid)}
+    auction_bid(bid, socket)
   end
 
   defp fetch(socket) do
     # bid = Auction.get_bid!(id)
     assign(socket, :bids, Auction.list_bids() )
+  end
+
+  defp auction_bid(val, socket) do
+    # IO.inspect "auction_bid"
+    if (val.price_bid == 1) do
+      Auction.update_bid(val, %{price_bid: val.price_bid + 4})
+      {:noreply, update(socket, :price_bid, val)}  
+    end
+    if (val.price_bid < 250) do
+      Auction.update_bid(val, %{price_bid: val.price_bid + 5})
+      {:noreply, update(socket, :price_bid, val)}
+    end
+    if (val.price_bid >= 250) do
+      Auction.update_bid(val, %{price_bid: val.price_bid + 25})
+      {:noreply, update(socket, :price_bid, val)}
+    end
   end
 end

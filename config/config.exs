@@ -36,7 +36,7 @@ storage: Arc.Storage.Local
 case Mix.env() do
   :dev ->
     config :bidhype,
-      img_host: "http://192.168.10.7:4000"
+      img_host: "http://192.168.10.4:4000"
 end
 
 # Import environment specific config. This must remain at the bottom

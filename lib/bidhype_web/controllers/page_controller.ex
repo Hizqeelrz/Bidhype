@@ -38,6 +38,9 @@ defmodule BidhypeWeb.PageController do
 
   def live_bid(conn, %{"id" => id}) do
     bid = Auction.get_bid!(id)
+    live_render(conn, BidhypeWeb.BidLive, session: %{
+      id: id,
+    })
     render(conn, "live_bid.html", bid: bid)
   end
 end

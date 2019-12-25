@@ -25,12 +25,11 @@ defmodule BidhypeWeb.Router do
     get "/", PageController, :index
     get "/show_single_bid/:id", PageController, :show_single_bid
 
-    # get "/live_bid/:id", PageController, :live_bid
+    get "/live_bid/:id", PageController, :live_bid
 
-    live "/bids/:id", BidLive
+    # live "/bids/:id", BidLive
     
     resources "/registration", UserController, only: [:new, :create, :show]
-    # resources "/bids", BidController, only: [:index]
 
     get "/sign-in", SessionController, :new
     post "/sign-in", SessionController, :create

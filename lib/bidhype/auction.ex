@@ -77,6 +77,7 @@ defmodule Bidhype.Auction do
     bid
     |> Bid.changeset(attrs)
     |> Repo.update()
+    |> notify_subscribers([:bid, :updated])
   end
 
   @doc """

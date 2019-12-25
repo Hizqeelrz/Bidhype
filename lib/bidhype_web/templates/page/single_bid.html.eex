@@ -1,10 +1,14 @@
 <div class="row mt-5">
 
+<%#= Phoenix.LiveView.live_render(@conn, BidhypeWeb.BidLive, session: %{bid_id: @bid.id}) %>
 <div class="col-sm-6">
 <figure class="figure border border-dark">
    <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid ">
-  <%# <figcaption class="figure-caption">A caption for the above image.</figcaption> %>
 </figure>
+  <div class="description-color">
+   <h5>STARTING BID</h5>
+   <p>$<%= @bid.price_bid %></p>
+  </div>
 </div>
 
 <div class="col-sm-6">
@@ -16,8 +20,8 @@
   </div>
 
 <div class="col-9 ml-5 mt-5">
-    <span><%#= link "Enter Live Bid", to: Routes.page_path(@conn, :live_bid, @bid), class: "btn btn-md btn-outline-danger d-flex justify-content-around", id: "myForm" %></span>
-    <span><%= link "Enter Live Bid", to: Routes.live_path(@conn, BidhypeWeb.BidLive, @bid), class: "btn btn-md btn-outline-danger d-flex justify-content-around", id: "myForm" %></span>
+    <span><%= link "Enter Live Bid", to: Routes.page_path(@conn, :live_bid, @bid), class: "btn btn-md btn-outline-danger d-flex justify-content-around", id: "myForm" %></span>
+    <span><%#= link "Enter Live Bid", to: Routes.live_path(@conn, BidhypeWeb.BidLive, @bid.id), class: "btn btn-md btn-outline-danger d-flex justify-content-around", id: "myForm" %></span>
 </div>
 </div>
 <p class="mt-3 ml-3">Get pre-approved to bid live on <span class="font-weight-bold"><%= Timex.format!(date(Timex.now), "{WDshort}, {D} {Mshort} {YYYY} {h24}:{0m}:{0s} {Z}") %>.</span></p>
