@@ -12,15 +12,18 @@ defmodule BidhypeWeb.BidLive do
     {:ok, assign(socket, :bid, Auction.get_bid!(id))}
   end
 
-  def handle_info({Auction, [:bid, _], _}, socket) do
-    {:noreply, socket}
-  end
-
+  # liveview events
   def handle_event("price_bid", val, socket) do
     IO.inspect "handle_event"
     bid = Auction.get_bid!(socket.assigns.bid.id)
 
     auction_bid(bid, socket)
+  end
+
+  # Live PubSub event
+
+  def handle_info({Auction, [:bid, _], _}, socket) do
+    {:noreply, Auction.get_bid!(socket.assigns.bid.id)}
   end
 
   defp fetch(socket) do
