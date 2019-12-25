@@ -4,7 +4,6 @@ defmodule BidhypeWeb.BidLive do
   alias Bidhype.Auction
 
   def render(assigns) do
-    # IO.inspect assigns
     PageView.render("bids.html", assigns)
   end
 
@@ -14,7 +13,6 @@ defmodule BidhypeWeb.BidLive do
   end
 
   def handle_info({Auction, [:bid, _], _}, socket) do
-    # IO.inspect "handle_info"
     {:noreply, socket}
   end
 
@@ -26,12 +24,10 @@ defmodule BidhypeWeb.BidLive do
   end
 
   defp fetch(socket) do
-    # bid = Auction.get_bid!(id)
     assign(socket, :bids, Auction.list_bids() )
   end
 
   defp auction_bid(val, socket) do
-    # IO.inspect "auction_bid"
     if (val.price_bid == 1) do
       Auction.update_bid(val, %{price_bid: val.price_bid + 4})
       {:noreply, update(socket, :price_bid, val)}  

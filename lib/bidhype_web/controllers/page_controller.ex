@@ -41,6 +41,5 @@ defmodule BidhypeWeb.PageController do
     live_render(conn, BidhypeWeb.BidLive, session: %{
       id: id,
     })
-    render(conn, "live_bid.html", bid: bid)
   end
 end
