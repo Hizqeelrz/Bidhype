@@ -2,7 +2,7 @@ setTimeout(function() {
   $('#successMessage').fadeOut("slow");
 }, 1500); // <-- time in milliseconds
 
-var deadline = new Date("Dec 25 , 2019 15:37:25").getTime();
+var deadline = new Date("Dec 27 , 2019 15:37:25").getTime();
 var x = setInterval(function() {
 var now = new Date().getTime();
 var t = deadline - now; 
@@ -45,7 +45,9 @@ function startTimer(duration, display) {
     minutes = minutes < 10 ? "0" + minutes : minutes;
     seconds = seconds < 10 ? "0" + seconds : seconds;
 
-    display.textContent = minutes + ":" + seconds;
+    if(display) {
+      display.textContent = minutes + ":" + seconds;
+    }
 
     if (--timer < 0) {
       timer = duration;
