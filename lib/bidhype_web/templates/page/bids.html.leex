@@ -5,7 +5,9 @@
     <img src="<%= url(@bid) %>" alt="Item image.." style="" width="550" height="450" class="img-fluid card-img-top">
   <div class="card-body">
     <div>
-      <h5 class="card-title text-center"><div class="timer"><span id="timer"></span></div></h5>
+      <h5 class="card-title text-center"><div class="timer"><span id="timer"></span>
+        <%#= @minutes %>：<%= @seconds |> Integer.to_string |> String.pad_leading(2, "0") %>
+      </div></h5>
       <h1 class="card-text text-center">$<%= @bid.price_bid %></h1>
       <button phx-click="price_bid" phx_value_id=<%= @bid.id %> class="btn btn-success button" id="reset">Bid</button>
     </div>
