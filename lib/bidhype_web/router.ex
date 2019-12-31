@@ -26,8 +26,6 @@ defmodule BidhypeWeb.Router do
     get "/show_single_bid/:id", PageController, :show_single_bid
 
     get "/live_bid/:id", PageController, :live_bid
-
-    # live "/bids/:id", BidLive
     
     resources "/registration", UserController, only: [:new, :create, :show]
 

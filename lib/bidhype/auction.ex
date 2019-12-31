@@ -59,6 +59,7 @@ defmodule Bidhype.Auction do
     %Bid{}
     |> Bid.changeset(attrs)
     |> Repo.insert()
+    |> notify_subscribers([:bid, :created])
   end
 
   @doc """
@@ -120,6 +121,7 @@ defmodule Bidhype.Auction do
     end
   end
 
+  # render the change live 
   defp notify_subscribers({:ok, result}, event) do
     Phoenix.PubSub.broadcast(Bidhype.PubSub, @topic, {__MODULE__, event, result})
     {:ok, result}
